@@ -1,53 +1,210 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Bench</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }header {
+  padding: 20px 0;
+}
+
+.logo {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 60px;
+  color: #f39c12;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.animate-wave {
+  animation: wave 3s infinite ease-in-out;
+}
+  @keyframes wave {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+     .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, #ff0 50%, transparent 50%);
+      animation: fall 3s infinite ease-in-out;
+    }
+    .confetti:nth-child(1) { left: 20%; animation-delay: 0.2s; }
+    .confetti:nth-child(2) { left: 40%; animation-delay: 0.4s; }
+    .confetti:nth-child(3) { left: 60%; animation-delay: 0.6s; }
+    .confetti:nth-child(4) { left: 80%; animation-delay: 0.8s; }
+  @keyframes fall {
+      0% { top: -10%; transform: rotate(0deg); }
+      100% { top: 110%; transform: rotate(360deg); }
+    }
+  .star {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 3em;
+      color: gold;
+      z-index: 3; /* Keep the star above everything */
+      animation: twinkle 1.5s infinite alternate;
+      text-shadow: 0 0 10px gold, 0 0 20px gold, 0 0 30px gold;
+    }
+
+    @keyframes twinkle {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.5;
+      }
+    }
+
+.tagline {
+  font-family:"Times new roman";
+  text-align: center;
+  font-size: 18px;
+  color: #ccc;
+  margin-top: -10px;
+}
+
+nav {
+  background-color: #333;
+  overflow: hidden;
+  text-align: center;
+}
+
+nav a {
+  display: inline-block;
+  color: #fff;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #f39c12;
+  color: #000;
+}
+
+section {
+  padding: 20px;
+}
+
+footer {
+  background-color: #000;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.music-controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#music-btn {
+  background: #f39c12;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px #f39c12;
+}
+
+#music-btn:hover {
+  background: #fff;
+  color: #111;
+  transform: scale(1.05);
+}
+
+#volume-slider {
+  margin-top: 15px;
+  width: 150px;
+  accent-color: #f39c12;
+  cursor: pointer;
+}
+
+  </style>
 </head>
 <body>
-
-  <header>
-    <h1 class="wave-logo">The Bench</h1>
-  </header>
-
-  <nav>
+  <audio id="bg-music" loop>
+    <source src="file:///storage/emulated/0/TheBench/davido_rnb.mp3" type="audio/mpeg">
+    <source src="file:///storage/emulated/0/TheBench/davido_rnb.ogg" type="audio/ogg">
+    <source src="file:///storage/emulated/0/TheBench/450_demon_girl.mp3" type="audio/mpeg">
+    <source src="file:///storage/emulated/0/TheBench/450_demon_girl.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>  <header>
+    <div class="star">✨</div>
+        <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <div class="confetti"></div>
+    <h1 class="logo animate-wave">The Bench</h1>
+    <p class="tagline">Owned by Priscilla Wanjiru</p>
+  </header>  <nav>
     <a href="#About">About</a>
     <a href="#location">Location</a>
     <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="About">
+  </nav>  <div class="music-controls">
+    <button id="music-btn">🔊 Play Music</button><br>
+    <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.5" />
+  </div>  <section id="About">
     <h2>About Us</h2>
-    <p>Unforgettable nightlife with live football, drinks, and fun vibes.</p>
+    <p>At The Bench, we offer an unforgettable nightlife experience with top bar services, vibrant music, live football, and premium drinks.</p>
     <ul>
       <li>Live football events</li>
       <li>Wide range of drinks</li>
-      <li>Come out and have fun!</li>
+      <li>Come out and have fun</li>
     </ul>
-  </section>
-
-  <section id="location">
+  </section>  <section id="location">
     <h2>Location</h2>
+    <p>Find us in the heart of the Eastern Bypass. Our address:</p>
     <address>
       The Bench<br>
-      Mwihoko, Eastern Bypass<br>
+      Mwihoko<br>
       Nairobi, Kenya
     </address>
-    <p>Open daily: 3:00 PM – 4:00 AM</p>
-  </section>
-
-  <section id="contact">
+    <p>We are open from 3:00 PM to 4:00 AM every day!</p>
+  </section>  <section id="contact">
     <h2>Contact Us</h2>
+    <p>Have any questions or want to make a reservation? Reach out to us!</p>
     <p>Email: <a href="mailto:jmgitahi590@gmail.com">jmgitahi590@gmail.com</a></p>
     <p>Phone: <a href="tel:+254713634171">+254 713 634 171</a></p>
-  </section>
+  </section>  <footer>
+    <p>&copy; 2024 The Bench — Website by JohnMark Gitahi Wanjiru</p>
+  </footer>  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+    const slider = document.getElementById("volume-slider");
+    let isPlaying = false;
 
-  <footer>
-    <p>&copy; 2024 The Bench. All Rights Reserved.</p>
-  </footer>
+    btn.addEventListener("click", () => {
+      if (!isPlaying) {
+        music.play();
+        btn.textContent = "🔇 Pause Music";
+      } else {
+        music.pause();
+        btn.textContent = "🔊 Play Music";
+      }
+      isPlaying = !isPlaying;
+    });
 
-</body>
+    slider.addEventListener("input", () => {
+      music.volume = slider.value;
+    });
+
+    music.volume = 10.0;
+  </script></body>
 </html>
